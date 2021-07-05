@@ -1,0 +1,71 @@
+E sad, ovo ovak ne radi ako nemate lib koji se zove jep (java embedded python)
+ovo je link na stranicu: https://github.com/ninia/jep
+on koristi python3
+da bi to instalirali, u terminal samo upisite: pip install jep
+prije toga bi trebali imati instaliran jdk neki, i java_home treba biti postavljen na mjesto gdje se nalazi vas jdk. inace instalacija nece raditi
+
+ugl kad se to instalira, otvorite projekt ovaj za backend (ovaj koji nije rreact-frontend) u intellj-u, onda odite na file>project_structure pa onda na project_settings>module>dependencies>znak plus (+) i tamo nadite jep.jar koji se nalazi na vasem racunalu (meni se instalacijom odmah dodao na m=ovo mjesto  > /home/lucija/.local/lib/python3nesto/nestonestonesto, ali nadete file koji se zove jep-nekaverzija.jar)
+i onda bi trebalo sve raditi
+mozda je jar doduse automatski dodan u projekt. nemam pojma. a vidjet cete
+
+
+ako ne zelite se jebat s tim, onda samo u backendu u employeecontroller u ovoj funkciji
+
+@PostMapping("/employees")
+    public Employee createEmployee(@RequestBody Employee employee) throws JepException {
+        Employee tmp = employee;
+        Jep jep = new Jep(false,"/home/lucija/Downloads/springboot-helloworld-tutorial/src/");
+        jep.set("ulaz", tmp.getFirstName());
+        jep.runScript("src/aritmetikaBrojeva.py");
+        String java_string = jep.getValue("s").toString();
+        //System.out.println("Java String:" + java_string);
+        tmp.setLastName(java_string);
+        return employeeRepository.save(tmp);
+    }
+    
+treba pisati ovako :
+@PostMapping("/employees")
+    public Employee createEmployee(@RequestBody Employee employee) throws JepException {      
+        return employeeRepository.save(employee);
+    }
+    
+ OBJASNJENJA OKO JEP-A:
+ 
+ Jep jep = new Jep(false,"/home/lucija/Downloads/springboot-helloworld-tutorial/src/"); -> ovo mora biti put do tamo gdje se nalaze skripte, jer aako pozivate neku scriptu iz neke druge, bez ovog nece raditi
+ 
+        jep.set("ulaz", tmp.getFirstName()); > unutar python scripte koja ce se izvrsavati postoji neki kao argument ulaz.... poziva se ugl neka funkcija u main dijelu, a salje kao parametar/argument sta vec ulaz. e vi postavljate taj ulaz kako zelite
+        
+        jep.runScript("src/aritmetikaBrojeva.py");> izvrsavate actually scriptu. treba navesti put do nje ako nije u rootu od projekta
+        
+        String java_string = jep.getValue("s").toString(); > ovdje dohvacate iz pythona vrijednosti varijabli od tamo. dakle  rezultat u python scripti se sprema u s, i onda vi trebate dohvatiti taj s
+        
+        //System.out.println("Java String:" + java_string); > ovo je samo ispis
+        
+        
+        
+POKRETANJE BACKENDA:
+
+https://www.javaguides.net/2020/07/spring-boot-react-js-crud-example-tutorial-spring-boot-backend-part1.html
+
+ovo sam slijedila
+
+morate imati mysql instaliran. i napraviti bazu koju ce koristi ova aplikacija. zove se  employee_management_system, al provjerite jos. i isto tako, u konfiguracijama je moja sifra i username za databazu, pa to isto morate promijeniti.
+
+basically, iz intellj, sam pokrente appliocaciju. pokrenete SpringbootBackendApplication razred. ili kak se vec zove... ugl tam gdje se nalazi main metoda jel
+
+	e da. morate instalirati i maven
+	prije toga trebate imati jdk isntaliran i java_home namjesten jel
+	
+i basically taj dio je kao pokrenut. i sad trebate pokrenuti jos front-end i onda kao aplikacija radi. meni se automatski otvori u browseru, a ako ne, link je: localhost:3000
+al provjerite jos
+
+POKRETANJE FRONTENDA:
+s terminalom dodite u direktorij react_frontend
+i tamo pokrenite naredbu: npm start
+
+i  to je to. mozda cete morati instalirati npm. i mozda ako bude nekih gresaka morate instalirati neke  stvari. pratite onda drugi dio tutoriala koje stvari treba instalirati
+
+
+NAPOMENA: ovo je uputa samo za sad, mogu je puno detaljnije napisati. ali trenutno mi se neda provjeravati te neke stvari xD
+ak sam sta zaboravila ili ak sta ne radi, ugl recite. al ono.. ak sljedite tutorial, trebalo bi raditi sve. i ako slijedite upute za jep, isto bi sve trebalo raditi
+
