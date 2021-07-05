@@ -1,3 +1,6 @@
+APLIKACIJA > aplikacija
+UNTITLES > program koji ima samo interpreter i to je to
+
 E sad, ovo ovak ne radi ako nemate lib koji se zove jep (java embedded python)
 ovo je link na stranicu: https://github.com/ninia/jep
 on koristi python3
