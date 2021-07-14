@@ -197,10 +197,22 @@ class InputMatrixComponent extends Component {
         str2 = '{' + str2.substring(1, str2.length - 1) + '}';
         console.log(str)
 
-        this.setState({ result: str + this.state.operator + str2 });
+        alert("Stringified - sending to server : " + str + this.state.operator + str2)
+        LexerService.sendMatrixString(str + this.state.operator + str2).then((res) => {
+
+
+            this.setState({ result: str + this.state.operator + str2 });
+            console.log("Recived: " + res.data);
+            this.setState({ result: res.data });
+        });
+
+
+
+
 
 
     }
+
 
     nacrtajMatricu = (indMatrice) => { // crta x*y inputa 
 
@@ -405,6 +417,8 @@ class InputMatrixComponent extends Component {
                 <br /><br />
                 <input readOnly placeholder="stringified version [FOR DEBUG]" name="firstName" className="form-control"
                     value={this.state.result} />
+                <br />
+
             </div>
 
         )
