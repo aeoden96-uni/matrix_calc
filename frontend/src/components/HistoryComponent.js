@@ -8,7 +8,8 @@ class HistoryComponent extends Component {
         this.state = {
 
             stringResult: '',
-            stringKraj: ''
+            stringKraj: '',
+            povijest: null
 
         }
 
@@ -17,7 +18,13 @@ class HistoryComponent extends Component {
 
 
     componentDidMount() {
-        return;
+        LexerService.sendHistory().then((res) => {
+
+            this.setState({ povijest: res.data });
+            console.log("Recived: ");
+            console.log(res.data);
+
+        });
 
 
     }

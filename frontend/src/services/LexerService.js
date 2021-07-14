@@ -35,6 +35,9 @@ class LexerService {
     sendLogicString(string, numberOf) {
         return axios.post(LEXER_API_BASE_URL + '/logic', { input: string, number_of_variables: numberOf });
     }
+    sendHistory() {
+        return axios.get(LEXER_API_BASE_URL + '/get');
+    }
 }
 
 export default new LexerService()

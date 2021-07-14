@@ -415,7 +415,7 @@ class InputMatrixComponent extends Component {
                 <button className="btn btn-outline-danger" onClick={this.cancel.bind(this)} >Go back</button>
 
                 <br /><br />
-                <input readOnly placeholder="stringified version [FOR DEBUG]" name="firstName" className="form-control"
+                <input readOnly placeholder="result" name="firstName" className="form-control"
                     value={this.state.result} />
                 <br />
 
