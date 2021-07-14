@@ -26,6 +26,9 @@ class LexerService {
          return axios.delete(EMPLOYEE_API_BASE_URL + '/' + employeeId);
      }*/
 
+    sendMatrixString(string) {
+        return axios.post(LEXER_API_BASE_URL + '/matrix', { value: string });
+    }
     sendAlgebraString(string) {
         return axios.post(LEXER_API_BASE_URL + '/algebra', { value: string });
     }
