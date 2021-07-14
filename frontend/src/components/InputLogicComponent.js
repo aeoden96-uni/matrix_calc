@@ -135,6 +135,8 @@ class InputLogicComponent extends Component {
 
         this.setState({ numberOf: [0, 0, 0, 0] });
 
+        this.setState({ cols: 0 });
+
     }
 
     back = (event) => {

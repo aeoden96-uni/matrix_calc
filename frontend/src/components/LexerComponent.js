@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import LexerService from '../services/LexerService'
 
-class LexerComponent extends Component {
+class HistoryComponent extends Component {
     constructor(props) {
         super(props)
 
@@ -60,4 +60,4 @@ class LexerComponent extends Component {
     }
 }
 
-export default LexerComponent
+export default HistoryComponent

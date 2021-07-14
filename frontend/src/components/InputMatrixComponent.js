@@ -362,8 +362,8 @@ class InputMatrixComponent extends Component {
                         <div>B</div>
                     </div>
                     <div className="d-flex justify-content-around">
-                        <div className=" matrix" style={{ width: "100px" }} >
-                            &nbsp;
+                        <div  >
+
                             {this.nacrtajMatricu(0)}
                         </div>
                         <div>
@@ -389,8 +389,11 @@ class InputMatrixComponent extends Component {
 
                         </div>
 
-                        &nbsp;
-                        {this.nacrtajMatricu(1)}
+                        <div>
+                            {this.nacrtajMatricu(1)}
+                        </div>
+
+
                     </div>
                     <br />
 

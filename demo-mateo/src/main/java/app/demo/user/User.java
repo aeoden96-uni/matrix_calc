@@ -1,4 +1,4 @@
-package app.demo.student;
+package app.demo.user;
 
 
 import javax.persistence.*;
@@ -79,7 +79,7 @@ public class User {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "User{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", email='" + email + '\'' +

@@ -1,10 +1,8 @@
-package app.demo.student;
+package app.demo.user;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 
 @CrossOrigin(origins="http://localhost:3000")
@@ -22,7 +20,7 @@ public class UserController {
         System.out.println(user);
 
         if(user.getEmail().equals("a@a.com"))
-            return false;
+            return true;
         return false;
     }
 
@@ -44,10 +42,10 @@ public class UserController {
         //studentService.updateStudent(studentId,name,email);
     }
 
-    /*@GetMapping("getInfo")
-    public List<User> getInfo(){
-        //return studentService.getStudents();
-    }*/
+    @GetMapping("getInfo")
+    public String getInfo(){
+        return "hello";
+    }
 
 
     @Autowired
