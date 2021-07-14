@@ -74,8 +74,16 @@ class InputLogicComponent extends Component {
                 novi = novi + stari[i];
             }
         }
+        var koliko = 0;
+        koliko = koliko + this.state.numberOf[0] > 0 ? 1 : 0;
+        koliko = koliko + this.state.numberOf[1] > 0 ? 1 : 0;
+        koliko = koliko + this.state.numberOf[2] > 0 ? 1 : 0;
+        koliko = koliko + this.state.numberOf[3] > 0 ? 1 : 0;
+        console.log(this.state.numberOf[2]);
+        console.log(koliko);
 
-        LexerService.sendLogicString(novi, this.state.numberOf).then((res) => {
+
+        LexerService.sendLogicString(novi, koliko).then((res) => {
 
             this.kreirajTablicu(res.data);
 

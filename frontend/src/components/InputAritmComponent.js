@@ -55,6 +55,9 @@ class InputAritmComponent extends Component {
     cancel() {
         this.props.history.push('/');
     }
+    hist() {
+        this.props.history.push('/history');
+    }
 
     changeExprHandler = (event) => {
         this.setState({ input: event.target.value });
@@ -92,7 +95,7 @@ class InputAritmComponent extends Component {
 
                                     <br></br>
                                     <button style={buttonStyle} className="btn btn-success" onClick={this.solve}>Solve</button>
-                                    <button style={buttonStyle} className="btn btn-warning" onClick={this.cancel.bind(this)} >See history</button>
+                                    <button style={buttonStyle} className="btn btn-warning" onClick={this.hist.bind(this)} >See history</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} >Go back</button>
                                     <br /><br />
                                     <input readOnly placeholder="input some expression" name="firstName" className="form-control"

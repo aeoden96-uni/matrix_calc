@@ -33,7 +33,7 @@ class LexerService {
         return axios.post(LEXER_API_BASE_URL + '/arithmetic', { value: string });
     }
     sendLogicString(string, numberOf) {
-        return axios.post(LEXER_API_BASE_URL + '/logic', { value: string, numberOf: numberOf });
+        return axios.post(LEXER_API_BASE_URL + '/logic', { input: string, number_of_variables: numberOf });
     }
 }
 
