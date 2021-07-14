@@ -1,17 +1,24 @@
 import axios from "axios";
 
 
-const USERS_REST_API_URL = 'http://localhost:8080/api/users';
+const USERS_REST_API_URL = 'http://localhost:8080/userControl';
 
 class UserService {
 
-    getUsers() {
-        return axios.get(USERS_REST_API_URL);
+
+    //ADDS NEW USER TO DATABASE ,returns success
+    addNewUser(name, email, password) {
+        return axios.post(USERS_REST_API_URL + '/addUser', { name: name, email: email, password: password });
     }
 
-    addOneUser() {
-        return axios.post(USERS_REST_API_URL, { id: 3, name: "newName", email: "newEmail", age: 12 });
+
+
+    //CHECKS IF USER EXISTS AND IF PASSWORD HE GAVE IS CORRECT,returns success
+    checkUser(email, password) {
+        return axios.post(USERS_REST_API_URL + '/login', { name: 'undefined', email: email, password: password });
     }
+
+
 }
 
 

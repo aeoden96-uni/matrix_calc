@@ -6,21 +6,16 @@ class InputAritmComponent extends Component {
         super(props)
 
         this.state = {
-            // step 2
-            id: this.props.match.params.id,
-            firstName: '',
-            lastName: '',
-            emailId: '',
+            input: '',
             result: ''
         }
         this.changeExprHandler = this.changeExprHandler.bind(this);
 
     }
 
-    // step 3
     componentDidMount() {
 
-        // step 4
+
         /*if (this.state.id === '_add') {
             return
         } else {
@@ -33,17 +28,25 @@ class InputAritmComponent extends Component {
             });
         }*/
     }
-    save = (e) => {
+
+
+
+    //ON CLICK  -- SOLVE BUTTON
+    solve = (e) => {
         e.preventDefault();
 
+        if (!this.state.input) {
+            alert("You didn't input anything.");
+            return
+        }
+
         //DO SADA UPISAN TEXT
-        console.log('expression => ' + JSON.stringify(this.state.firstName));
+        console.log('expression => ' + JSON.stringify(this.state.input));
 
 
+        LexerService.sendAlgebraString(this.state.input).then((res) => {
 
-        LexerService.lexString(this.state.firstName).then((res) => {
-
-            console.log(res.data);
+            console.log("Recived: " + res.data);
             this.setState({ result: res.data });
         });
 
@@ -54,21 +57,22 @@ class InputAritmComponent extends Component {
     }
 
     changeExprHandler = (event) => {
-        this.setState({ firstName: event.target.value });
+        this.setState({ input: event.target.value });
     }
-
-
-
 
 
     getTitle() {
-        if (this.state.id === '_add') {
-            return <h3 className="text-center">Add Employee</h3>
-        } else {
-            return <h3 className="text-center">Arithmetic solver</h3>
-        }
+
+        return <h3 className="text-center">Arithmetic solver</h3>
+
     }
     render() {
+        const buttonStyle = {
+            marginRight: '10px',
+
+        };
+
+
         return (
             <div>
                 <br></br>
@@ -83,12 +87,12 @@ class InputAritmComponent extends Component {
                                     <div className="form-group">
 
                                         <input placeholder="input some expression" name="firstName" className="form-control"
-                                            value={this.state.firstName} onChange={this.changeExprHandler} />
+                                            value={this.state.input} onChange={this.changeExprHandler} />
                                     </div>
 
                                     <br></br>
-                                    <button className="btn btn-success" onClick={this.save}>Solve</button>
-                                    <button className="btn btn-warning" onClick={this.cancel.bind(this)} >See history</button>
+                                    <button style={buttonStyle} className="btn btn-success" onClick={this.solve}>Solve</button>
+                                    <button style={buttonStyle} className="btn btn-warning" onClick={this.cancel.bind(this)} >See history</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} >Go back</button>
                                     <br /><br />
                                     <input readOnly placeholder="input some expression" name="firstName" className="form-control"

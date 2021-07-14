@@ -18,7 +18,6 @@ class FooterComponent extends Component {
         return (
             <div>
                 <footer className="footer">
-                    <button className="btn btn-warning position-absolute bottom-0 translate-middle" onClick={this.logoutHandler}>Logout</button>
                 </footer>
             </div>
         )
