@@ -87,7 +87,8 @@ class InputLogicComponent extends Component {
 
 
             var test = ["test 123", "test 123", "test 123", "test 123"];
-
+            console.log("DOBIO SA SERVERA::::::::->")
+            console.log(res.data)
 
             this.kreirajTablicu(res.data);
 
