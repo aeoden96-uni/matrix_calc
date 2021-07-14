@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 //const EMPLOYEE_API_BASE_URL = "http://localhost:8080/api";
-const LEXER_API_BASE_URL = "http://localhost:8080/lexerControl";
+const LEXER_API_BASE_URL = "http://localhost:8001/expressionControl";
 
 
 class LexerService {
@@ -30,7 +30,7 @@ class LexerService {
         return axios.post(LEXER_API_BASE_URL + '/matrix', { value: string });
     }
     sendAlgebraString(string) {
-        return axios.post(LEXER_API_BASE_URL + '/algebra', { value: string });
+        return axios.post(LEXER_API_BASE_URL + '/arithmetic', { value: string });
     }
     sendLogicString(string, numberOf) {
         return axios.post(LEXER_API_BASE_URL + '/logic', { value: string, numberOf: numberOf });

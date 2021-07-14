@@ -63,6 +63,13 @@ class InputLogicComponent extends Component {
             if (stari[i] >= '₀' && stari[i] <= '₉') {
                 novi = novi + (stari[i].charCodeAt(0) - '₀'.charCodeAt(0));
             }
+            else if (stari[i] === '⇒') {
+                novi = novi + '->';
+
+            }
+            else if (stari[i] === '⇔') {
+                novi = novi + '<->';
+            }
             else {
                 novi = novi + stari[i];
             }
@@ -248,6 +255,8 @@ class InputLogicComponent extends Component {
                                         <button type="button" onClick={(param) => this.insertOp("&")} className="btn btn-secondary">&</button>
                                         <button type="button" onClick={(param) => this.insertOp("¬")} className="btn btn-secondary">¬</button>
                                         <button type="button" onClick={(param) => this.insertOp("|")} className="btn btn-secondary">|</button>
+                                        <button type="button" onClick={(param) => this.insertOp("⇒")} className="btn btn-secondary">⇒</button>
+                                        <button type="button" onClick={(param) => this.insertOp("⇔")} className="btn btn-secondary">⇔</button>
                                     </div>&nbsp;
                                     <div className="btn-group mr-2" role="group" aria-label="First group">
                                         <button type="button" onClick={(param) => this.insertCols(1)} className="btn btn-secondary">(</button>

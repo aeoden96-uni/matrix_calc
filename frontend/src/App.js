@@ -7,7 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
-import LexerComponent from './components/LexerComponent';
+import HistoryComponent from './components/HistoryComponent';
 import MainComponent from './components/MainComponent';
 import InputAritmComponent from './components/InputAritmComponent';
 import InputLogicComponent from './components/InputLogicComponent';
@@ -58,14 +58,10 @@ function App() {
             <div className="container">
               <Switch>
                 <Route path="/" exact component={MainComponent}></Route>
-                <Route path="/employees" exact component={LexerComponent}></Route>
-                <Route path="/add-employee/" exact component={LexerComponent}></Route>
                 <Route path="/input-aritm/" exact component={InputAritmComponent}></Route>
-                <Route path="/input-matrix/:sizeAx/:sizeAy/:sizeBx/:sizeBy" component={InputMatrixComponent}></Route>
-                <Route path="/input-matrix/:sizeAx/:sizeAy" component={InputMatrixComponent}></Route>
                 <Route path="/input-matrix/" exact component={InputMatrixComponent}></Route>
                 <Route path="/input-log/" exact component={InputLogicComponent}></Route>
-                <Route path="/lexer" exact component={LexerComponent}></Route>
+                <Route path="/history" exact component={HistoryComponent}></Route>
                 {/* <Route path = "/update-employee/:id" component = {UpdateEmployeeComponent}></Route> */}
               </Switch>
             </div>

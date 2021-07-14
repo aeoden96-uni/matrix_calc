@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const USERS_REST_API_URL = 'http://localhost:8080/userControl';
+const USERS_REST_API_URL = 'http://localhost:8001/userControl';
 
 class UserService {
 
