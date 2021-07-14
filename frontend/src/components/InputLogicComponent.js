@@ -85,7 +85,11 @@ class InputLogicComponent extends Component {
 
         LexerService.sendLogicString(novi, koliko).then((res) => {
 
-            this.kreirajTablicu(res.data);
+
+            var test = ["test 123", "test 123", "test 123", "test 123"];
+
+
+            this.kreirajTablicu(/*res.data*/test);
 
         });
 
@@ -180,10 +184,10 @@ class InputLogicComponent extends Component {
     kreirajTablicu(data) { //JEDOM KAD DOBIJE INFO S SERVERA ---> POPUNJAVA brojRezRedaka i rezTablica
 
         this.setState({
-            brojRezRedaka: data.tablica.length
+            brojRezRedaka: data.length
         });
         this.setState({
-            rezTablica: data.tablica
+            rezTablica: data
         });
 
     }
@@ -204,29 +208,16 @@ class InputLogicComponent extends Component {
             <div>
                 <h3>Result</h3>
                 <table className="table">
-                    <thead>
-                        <tr>
-                            <th scope="col" key="0">#</th>
-                            {this.state.rezTablica[0].map((value, ind) => {
-                                return <th scope="col" key={ind + " st"}>{ind + 1}</th>
 
-                            })}
-                        </tr>
-                    </thead>
                     <tbody>
 
+
                         {this.state.rezTablica.map((value, ind) => {
-                            return (
-                                <tr key={ind + " red"}>
-                                    <th scope="row">{ind + 1}</th>
-                                    {value.map((value2, ind2) => {
-                                        return <td key={ind2 + " st"}>{value2 ? "1" : "0"}</td>
+                            return <tr scope="col" key={ind + " st"}>{value}</tr>
 
-                                    })}
-
-                                </tr>
-                            )
                         })}
+
+
 
 
 
