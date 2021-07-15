@@ -212,12 +212,22 @@ class InputLogicComponent extends Component {
             <div>
                 <h3>Result</h3>
                 <table className="table">
-
+                    <thead>
+                        <th scope="col">#</th>
+                        <th scope="col">Variables</th>
+                        <th scope="col">Output</th>
+                    </thead>
                     <tbody>
 
 
+
                         {this.state.rezTablica.map((value, ind) => {
-                            return <tr key={ind + " st"}>{value}</tr>
+                            return <tr key={ind + " st"}>
+                                <th scope="row">{ind}</th>
+                                <td>{value.substr(0, value.indexOf(' '))}</td>
+                                <td>{value.substr(value.indexOf(' ') + 1)}</td>
+
+                            </tr>
 
                         })}
 
