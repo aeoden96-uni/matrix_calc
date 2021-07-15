@@ -224,8 +224,8 @@ class InputLogicComponent extends Component {
                         {this.state.rezTablica.map((value, ind) => {
                             return <tr key={ind + " st"}>
                                 <th scope="row">{ind}</th>
-                                <td>{value.substr(0, value.indexOf(' '))}</td>
-                                <td>{value.substr(value.indexOf(' ') + 1)}</td>
+                                <td>{value.substr(0, value.indexOf('izlaz') - 1)}</td>
+                                <td>{value.substr(value.indexOf('izlaz'))}</td>
 
                             </tr>
 
