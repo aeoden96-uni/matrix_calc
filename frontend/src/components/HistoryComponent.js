@@ -8,7 +8,7 @@ class HistoryComponent extends Component {
         this.state = {
 
 
-            povijest: null
+            povijest: []
 
         }
 
@@ -27,19 +27,7 @@ class HistoryComponent extends Component {
 
 
     }
-    popuni() {
 
-        if (this.state.povijest == null) return;
-
-        this.state.povijest.map((value, ind) => {
-            return <tr>
-                <th scope="row">{value.id}</th>
-                <td>{value.input}</td>
-                <td>{value.output}</td>
-                <td>{value.inputType}</td>
-            </tr>
-        })
-    }
 
     render() {
         return (
@@ -58,7 +46,17 @@ class HistoryComponent extends Component {
                         </thead>
                         <tbody>
 
-                            {this.popuni()}
+                            {
+                                this.state.povijest.map(
+                                    izraz =>
+                                        <tr key={izraz.id}>
+                                            <th scope="row">{izraz.id}</th>
+                                            <td>{izraz.input}</td>
+                                            <td>{izraz.output}</td>
+                                            <td>{izraz.inputType}</td>
+                                        </tr>
+                                )
+                            }
 
                         </tbody>
                     </table>

@@ -176,6 +176,9 @@ class InputMatrixComponent extends Component {
     cancel() {
         this.props.history.push('/');
     }
+    hist() {
+        this.props.history.push('/history');
+    }
 
     getTitle() {
 
@@ -411,7 +414,7 @@ class InputMatrixComponent extends Component {
 
                 </div>
                 <br />
-                <button className="btn btn-outline-warning" onClick={this.cancel.bind(this)} >See history</button>&nbsp;
+                <button className="btn btn-outline-warning" onClick={this.hist.bind(this)} >See history</button>&nbsp;
                 <button className="btn btn-outline-danger" onClick={this.cancel.bind(this)} >Go back</button>
 
                 <br /><br />
