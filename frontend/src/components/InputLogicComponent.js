@@ -75,18 +75,18 @@ class InputLogicComponent extends Component {
             }
         }
         var koliko = 0;
-        koliko = koliko + this.state.numberOf[0] > 0 ? 1 : 0;
-        koliko = koliko + this.state.numberOf[1] > 0 ? 1 : 0;
-        koliko = koliko + this.state.numberOf[2] > 0 ? 1 : 0;
-        koliko = koliko + this.state.numberOf[3] > 0 ? 1 : 0;
-        console.log(this.state.numberOf[2]);
-        console.log(koliko);
+        koliko = koliko + (this.state.numberOf[0] > 0 ? 1 : 0);
+        koliko = koliko + (this.state.numberOf[1] > 0 ? 1 : 0);
+        koliko = koliko + (this.state.numberOf[2] > 0 ? 1 : 0);
+        koliko = koliko + (this.state.numberOf[3] > 0 ? 1 : 0);
+        //console.log(this.state.numberOf[2]);
+        //console.log(koliko);
 
 
         LexerService.sendLogicString(novi, koliko).then((res) => {
 
 
-            var test = ["test 123", "test 123", "test 123", "test 123"];
+            //var test = ["test 123", "test 123", "test 123", "test 123"];
             console.log("DOBIO SA SERVERA::::::::->")
             console.log(res.data)
 
@@ -217,7 +217,7 @@ class InputLogicComponent extends Component {
 
 
                         {this.state.rezTablica.map((value, ind) => {
-                            return <tr scope="col" key={ind + " st"}>{value}</tr>
+                            return <tr key={ind + " st"}>{value}</tr>
 
                         })}
 
