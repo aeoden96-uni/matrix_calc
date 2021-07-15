@@ -16,15 +16,9 @@ import UserService from './services/UserService';
 
 function App() {
 
-  /*const adminUser = {
-    email: "a@a.com",
-    password: "a"
-  }*/
-  //const [user, setUser] = useState({ name: "", email: "" });
-  const [setError] = useState("");
 
   async function Login(details) {
-    console.log(setError);
+
 
 
     UserService.checkUser(details.email, details.password).then((res) => {

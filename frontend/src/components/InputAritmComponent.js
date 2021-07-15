@@ -15,18 +15,6 @@ class InputAritmComponent extends Component {
 
     componentDidMount() {
 
-
-        /*if (this.state.id === '_add') {
-            return
-        } else {
-            LexerService.lexString(this.state.firstName).then((res) => {
-                let employee = res.data;
-                this.setState({
-                    firstName: employee.firstName
-
-                });
-            });
-        }*/
     }
 
 
