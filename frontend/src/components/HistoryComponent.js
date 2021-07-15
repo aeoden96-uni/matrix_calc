@@ -7,8 +7,7 @@ class HistoryComponent extends Component {
 
         this.state = {
 
-            stringResult: '',
-            stringKraj: '',
+
             povijest: null
 
         }
@@ -30,10 +29,10 @@ class HistoryComponent extends Component {
     }
     popuni() {
 
-        if (this.state.povijest == null) return
+        if (this.state.povijest == null) return;
 
-        return this.state.povijest.map((value, ind) => {
-            <tr>
+        this.state.povijest.map((value, ind) => {
+            return <tr>
                 <th scope="row">{value.id}</th>
                 <td>{value.input}</td>
                 <td>{value.output}</td>
