@@ -221,10 +221,6 @@ class InputLogicComponent extends Component {
 
                         })}
 
-
-
-
-
                     </tbody>
 
 
@@ -256,7 +252,7 @@ class InputLogicComponent extends Component {
                                 <form>
                                     <div className="btn-group mr-2" role="group" aria-label="First group">
                                         <button type="button" onClick={(param) => this.insertOp("&")} className="btn btn-secondary">&</button>
-                                        <button type="button" onClick={(param) => this.insertOp("¬")} className="btn btn-secondary">¬</button>
+                                        <button type="button" onClick={(param) => this.insertOp("!")} className="btn btn-secondary">!</button>
                                         <button type="button" onClick={(param) => this.insertOp("|")} className="btn btn-secondary">|</button>
                                         <button type="button" onClick={(param) => this.insertOp("⇒")} className="btn btn-secondary">⇒</button>
                                         <button type="button" onClick={(param) => this.insertOp("⇔")} className="btn btn-secondary">⇔</button>
