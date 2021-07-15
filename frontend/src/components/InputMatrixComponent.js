@@ -37,6 +37,59 @@ class InputMatrixComponent extends Component {
         this.setState({ operator: e.target.value });
     }
 
+    drawResultMatrix() {
+        if (this.state.result === '') return;
+
+
+
+        let re = new RegExp('\d x \d matrix');
+
+        var a = parseInt(this.state.result.toString().replace(/(^\d) x (\d) matrix(.+$)/i, '$1'));
+        var b = parseInt(this.state.result.toString().replace(/(^\d) x (\d) matrix(.+$)/i, '$2'));
+        var brojevi = this.state.result.toString().replace(/(^\d) x (\d) matrix(.+$)/i, '$3')
+        console.log(brojevi)
+        //var v = new Array(novaA);
+
+        var novi = [];
+
+
+        for (var i = 0; i < a; ++i) {
+            novi.push(<tr>
+                {this.redak(i, b, brojevi)}
+            </tr>);
+        }
+        return novi
+
+
+    }
+
+    redak(ind, b, brojevi) {
+        var stupci = [];
+
+        var string = brojevi;
+        string = string.split(" ");
+        var stringArray = new Array();
+        for (var i = 0; i < string.length; i++) {
+            stringArray.push(string[i]);
+            if (i != string.length - 1) {
+                //stringArray.push(" ");
+            }
+        }
+        console.log(stringArray)
+
+        var n = ind * b;
+
+        for (var i = 0; i < b; i++) {
+            stupci.push(
+                <td>{stringArray[i + b * ind]}</td>
+            )
+        }
+
+        return stupci;
+
+
+    }
+
     changeMatrix1(a, b) { //init matrix to new dimensions
         this.setState({ matrix1: null });
 
@@ -156,6 +209,8 @@ class InputMatrixComponent extends Component {
 
 
     }
+
+
 
     save = (e) => {
         e.preventDefault();
@@ -418,8 +473,23 @@ class InputMatrixComponent extends Component {
                 <button className="btn btn-outline-danger" onClick={this.cancel.bind(this)} >Go back</button>
 
                 <br /><br />
+                <h2>Result</h2>
                 <input readOnly placeholder="result" name="firstName" className="form-control"
                     value={this.state.result} />
+                <br />
+                <div className="card" style={{ width: "100%" }}>
+
+                    <table className="table" >
+
+                        <thead>
+
+                        </thead>
+                        <tbody>
+                            {this.drawResultMatrix()}
+                        </tbody>
+                    </table>
+
+                </div>
                 <br />
 
             </div>
