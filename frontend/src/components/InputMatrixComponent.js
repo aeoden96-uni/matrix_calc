@@ -200,7 +200,7 @@ class InputMatrixComponent extends Component {
         str2 = '{' + str2.substring(1, str2.length - 1) + '}';
         console.log(str)
 
-        alert("Stringified - sending to server : " + str + this.state.operator + str2)
+        console.log("Stringified - sending to server : " + str + this.state.operator + str2)
         LexerService.sendMatrixString(str + this.state.operator + str2).then((res) => {
 
 
