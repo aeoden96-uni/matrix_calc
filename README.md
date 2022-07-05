@@ -1,4 +1,4 @@
-# java_project
+# Logic/Matrix calculator 
 Projekt za kolegij: Java
 
 
