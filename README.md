@@ -1,6 +1,9 @@
 # Logic/Matrix calculator 
-Projekt za kolegij: Java
+Project done in: 
 
+| Front-end      | Back-end |
+| ----------- | ----------- |
+| ReactJS      | Java       |
 
 
 ## React frontend - opis 
